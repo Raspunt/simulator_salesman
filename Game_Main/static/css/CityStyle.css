@@ -1,0 +1,40 @@
+
+
+
+.ShopBox {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.productsBox{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+.OneProduct {
+    font-size: 22px;
+    border: solid 5px;
+    margin: 5px;
+    background-color: green;
+    border-radius: 15rem;
+    transition: 0.5s;
+}
+
+
+.OneProduct:hover {
+    background-color: darkgreen;
+}
+
+
+  
+  .CityText {
+    font-size: 1rem;
+    color: black;
+    padding: 1px;
+  }
+
+  h1{
+    padding: 0;
+  }

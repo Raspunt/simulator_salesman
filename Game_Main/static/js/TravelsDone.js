@@ -1,15 +1,30 @@
 
 
 function SellProduct(product_id){
+        
+    let city_id = window.location.pathname.split('/')[2];
+    
+    axios.post(`/SellProduct/${city_id}/${product_id}`)
+    .then(()=>{
+        location.reload(); 
 
-    const city_id = localStorage.getItem('city_id');
-
-
-    axios.post('/SellProduct/', {
-        city_id: city_id,
-        product_id: product_id
     })
+    
+    
+    
+}
 
-    console.log("Продаем продукты");
+function BuyProduct(product_id){
+
+    let city_id = window.location.pathname.split('/')[2];
+    
+    axios.post(`/BuyProduct/${city_id}/${product_id}`)
+    .then(()=>{
+        location.reload(); 
+    }) 
+   
+
 
 }
+
+    

@@ -1,0 +1,74 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ты прибыл в город !!</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/MoveToCity.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/CityStyle.css' %}">
+
+</head>
+<body>
+
+    <div class="center_div">
+        
+        <h1>Вы прибыли в город {{ city }} </h1>
+
+        <h3>Ваш бюджет {{ dealer.money }} cosmic-ов</h3>
+
+        <div class="ShopBox">
+
+
+            <div class="productsBox">
+            <h1>Что вы хотите продать в городе?</h1>
+                {% for product in dealer_products %}
+                <button class="OneProduct" onclick="SellProduct('{{product.id }}')">
+                    
+                    <p>
+                        {{ product }}
+                    </p>
+                    <p>
+                         {{ product.cost }} cosmic-ов
+                    </p>
+
+
+                 </button>
+                {% endfor %}
+            </div>
+            
+            <div class="">
+                <p><></p>
+ 
+               
+            </div>
+
+            <div class="productsBox">
+            <h1>Что вы хотите купить в городе?</h1>
+                {% for product in city_products %}
+                <button class="OneProduct" onclick="BuyProduct('{{product.id }}')"> 
+                    <p>
+                        {{ product }}
+                    </p>
+                    <p>
+                         {{ product.cost }} cosmic-ов
+                    </p>
+                    
+                </button>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/TravelsDone.js' %}"></script>
+    
+</body>
+</html>

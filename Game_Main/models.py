@@ -8,6 +8,7 @@ class Product(models.Model):
     type_product = models.CharField(max_length=100)
     freshness = models.CharField(max_length=100)
     cost = models.IntegerField()
+    weightkg = models.IntegerField()
     
 
     def __str__(self):
@@ -16,9 +17,9 @@ class Product(models.Model):
 class Dealer(models.Model):
     delerName = models.CharField(max_length=100)
     telegaName = models.CharField(max_length=100)
-    telega_products = models.ManyToManyField(Product)
+    products = models.ManyToManyField(Product)
     money = models.IntegerField() 
-    telega_weightkg = models.IntegerField()
+    weightkg = models.IntegerField()
 
     def __str__(self):
         return self.delerName

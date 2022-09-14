@@ -14,23 +14,3 @@ body {
 
 }
 
-.productsBox{
-  display: flex;
-  flex-direction: column;
-}
-
-
-.OneProduct {
-  font-size: 22px;
-  border: solid 5px;
-  padding: 40px;
-  margin: 5px;
-  background-color: green;
-  border-radius: 15rem;
-}
-
-
-.CityText {
-  font-size: 2rem;
-  color: black;
-}

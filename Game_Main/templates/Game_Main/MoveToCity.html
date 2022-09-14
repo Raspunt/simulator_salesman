@@ -1,0 +1,44 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move to city {{ city }}</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/MoveToCity.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+</head>
+<body>
+
+    <div class="center_div">
+        <h1>Тележка направляеться к городу {{ city }}</h1>
+        <div class="flex_right">
+            <h1>Это займет  </h1>
+            <h1>__</h1>
+            <h1 id="days"></h1>
+            <h1> : </h1>
+            <h1 id="event_name"></h1>
+        </div>
+
+        <button class="FinishBtn" id="FinishBtn" onclick="TravelIsDone()" >Путь закончен</button>
+    </div>
+
+
+    <script>
+        let eventsStr = '{{ events }}'
+        let days = '{{ city.daysToArrivalTelega }}'
+    </script>
+
+
+    <script src="{% static 'js/game.js' %}"></script>
+
+
+</body>
+</html>

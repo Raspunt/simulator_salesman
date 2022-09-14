@@ -1,0 +1,37 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game 1.0</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    
+    <div class="center_div">
+        
+        <h1>Выберите город для покупки товаров </h1>
+        <div >
+            {% for city in Citys %}
+            <a class="CityText" href="MoveToCity/{{ city.id }}">{{ city.title }}</a>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+
+    <script>
+        localStorage.setItem('city_id', '{{ city.id  }}');
+    </script>
+
+</body>
+
+
+
+</html>

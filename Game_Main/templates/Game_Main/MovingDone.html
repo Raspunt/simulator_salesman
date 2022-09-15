@@ -21,7 +21,17 @@
         
         <h1>Вы прибыли в город {{ city }} </h1>
 
-        <h3>Ваш бюджет {{ dealer.money }} cosmic-ов</h3>
+
+
+
+
+        <div class="bud">
+            <h3>Ваш бюджет </h3>
+            <h3 id="dealer_money"></h3>
+            <h3>cosmic-ов</h3>
+
+
+        </div>
 
         <div class="ShopBox">
 
@@ -65,9 +75,15 @@
             </div>
 
         </div>
+
+        <a href="{% url 'listCitysUrl' %}" class="listCitys">Куда дальше едем?</a>
+        
+
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
     <script src="{% static 'js/TravelsDone.js' %}"></script>
     
 </body>

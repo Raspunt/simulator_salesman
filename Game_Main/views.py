@@ -11,7 +11,7 @@ from django.shortcuts import redirect
 
 from . models import City,Product,Dealer,Events
 
-def MainPage(requests):
+def ListCitys(requests):
     Citys = City.objects.all()
 
     return render(requests,'Game_Main/index.html',
@@ -40,8 +40,9 @@ def MoveToCity(requests,id):
 
  
 
-
 def MovingDone(requests,city_id):
+
+
 
     city = City.objects.get(id=city_id)
     dealer = Dealer.objects.get(id=1)
@@ -58,11 +59,11 @@ def MovingDone(requests,city_id):
     })
 
 @csrf_exempt
-def SellProductInCity(requests,city_id,product_id):
+def SellProductInCity(requests,city_id,product_id,dealer_id):
 
     if requests.method == "POST":
 
-        dealer = Dealer.objects.get(id=1)
+        dealer = Dealer.objects.get(id=dealer_id)
         city = City.objects.get(id=city_id)
         product = Product.objects.get(id=product_id)
 
@@ -91,11 +92,11 @@ def SellProductInCity(requests,city_id,product_id):
 
 
 @csrf_exempt
-def BuyProductInCity(requests,city_id,product_id):
+def BuyProductInCity(requests,city_id,product_id,dealer_id):
 
     if requests.method == "POST":
 
-        dealer = Dealer.objects.get(id=1)
+        dealer = Dealer.objects.get(id=dealer_id)
         city = City.objects.get(id=city_id)
         product = Product.objects.get(id=product_id)
 
@@ -125,6 +126,58 @@ def BuyProductInCity(requests,city_id,product_id):
             return HttpResponse("не хватает денег")
                 
 
+def MainPage(requests):
+
+    if requests.method == 'POST':
+
+        print(requests.POST)
+
+        name = requests.POST['name']
+        telegaName = requests.POST['TelegaName']
+        weightkg = requests.POST['weightkg']
+
+        money = 20000
+
+        dealer = Dealer.objects.create(delerName=name,money=money,telegaName=telegaName,weightkg=weightkg)
+        Citys = City.objects.all()
+
+        return render(requests,'Game_Main/index.html',
+        {
+            'Citys':Citys,
+            'dealer':dealer
+        })
+
+
+    dealers = Dealer.objects.all()
+
+
+        
+
+    return render(requests,'Game_Main/MainPage.html',
+    {
+        'dealers':dealers
+    })
+
+@csrf_exempt
+def GetDealerData(requests,dealer_id):
+
+    if requests.method == "POST":
+        dealer = Dealer.objects.get(id=dealer_id)
+
+        return HttpResponse(f'{str(dealer.delerName).replace(" ","_")} {dealer.money}')
+
+
+def GetEvents(requests):
+
+    events = Events.objects.all()
+
+    event_arr = []
+    for event in events:
+
+        event_str = f"{str(event.title).replace(' ','_')}*{event.Waysted_days}^"
+        event_arr.append(event_str)
+
+    return HttpResponse("".join(event_arr))    
 
 
 

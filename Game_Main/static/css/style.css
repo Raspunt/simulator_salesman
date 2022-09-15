@@ -14,3 +14,13 @@ body {
 
 }
 
+.flex_row_cityList{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_row_cityList a {
+  margin: 1rem;
+  font-size: 25px;
+  color: black;
+}

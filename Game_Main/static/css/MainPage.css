@@ -1,0 +1,23 @@
+
+
+.form_input{
+    display: flex;
+    flex-direction: column;
+}
+
+.submit_btn {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(32, 32, 112);
+    color: white;
+    border-radius: 15rem;
+
+    border:solid;
+}
+
+
+.select_dealer {
+    display: flex;
+    flex-direction: row;
+}
+

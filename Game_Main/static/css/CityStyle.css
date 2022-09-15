@@ -38,3 +38,26 @@
   h1{
     padding: 0;
   }
+
+.bud {
+  display: flex;
+  flex-direction: row;
+}
+
+.bud h3 {
+  margin: 5px;
+}
+
+
+.listCitys{
+  background-color: brown;
+  padding: 20px;
+  color: white;
+  border-radius: 15rem;
+
+}
+
+
+#historyEvents{
+  flex-flow: wrap;
+}

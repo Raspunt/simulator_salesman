@@ -1,0 +1,79 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Симулятор торговца</title>
+    {% load static  %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/MainPage.css' %}">
+
+</head>
+<body>
+
+    <div class="center_div">
+        <h1>Добро пожаловать в симулятор торговца</h1>
+
+        <h3>Создайте своего торговца</h3>
+
+
+        <div class="select_dealer">
+
+            <form action="" method="post">
+                
+                {% csrf_token %}
+                
+                <div class="form_input">
+                    <p>Имя Торговца</p>
+                    <input type="text" value="" name="name">
+                </div>
+                
+                <div class="form_input">
+                    <p>Кличка Телеги</p>
+                    <input type="text" value=""  name="TelegaName">
+                </div>
+                
+                <div class="form_input">
+                    <p>грузоподьёмность телеги в кг</p>
+                    <input type="number" name="weightkg">
+                </div>
+                
+                <button type="submit" class="submit_btn" >
+                    Подвердить
+                </button>
+                
+            </form>
+
+            <div class="empty_space">
+                <>
+            </div>
+
+            <div class="list_dealer">
+
+                <h4>уже были в игре? Выберите торговца</h4>
+
+                {% for dealer in dealers %}
+
+                <form action="{% url 'listCitysUrl'  %}" method="get">
+                        <button type="submit" name="dealer_id" value="{{ dealer.id }}">{{ dealer }}</button>
+                </form>
+                
+                {% endfor %}
+
+
+            </div>
+
+            
+        </div>
+
+
+
+    </div>
+    
+
+</body>
+</html>
